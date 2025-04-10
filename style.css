@@ -1,0 +1,589 @@
+:root {
+    
+    --primary-light: #9ACBD0;
+    --primary-dark: #006A71;
+    --secondary: #48A6A7;
+    --accent: #006A71;
+    --text-light: #030303;
+    --text-dark: #FFFFFF;
+    --bg-light: #F5F9FA;
+    --bg-dark: #030303;
+    --card-light: #FFFFFF;
+    --card-dark: #1A2A2F;
+    --border-light: #E0E7E8;
+    --border-dark: #2A3A3F;
+    --glow-color: rgba(154, 203, 208, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: all 0.5s ease, box-shadow 0.5s ease;
+    background-color: #2A3A3F;
+}
+
+body:hover {
+    box-shadow: 0 0 30px var(--glow-color);
+}
+
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    background-color: var(--card-light);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: all 0.5s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-light);
+}
+
+.container:hover {
+    box-shadow: 0 10px 40px rgba(0, 106, 113, 0.2);
+}
+
+.dark-mode .container {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    transition: color 0.5s ease;
+}
+
+.dark-mode h1 {
+    color: var(--primary-light);
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 3px;
+    transition: all 0.5s ease;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#topicInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-light);
+    color: var(--text-light);
+}
+
+.dark-mode #topicInput {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
+
+#topicInput:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(72, 166, 167, 0.3);
+}
+
+#stanceSelect {
+    padding: 12px 15px;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--card-light);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode #stanceSelect {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
+
+#stanceSelect:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(72, 166, 167, 0.3);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-mode button {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+}
+
+button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 106, 113, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(154, 203, 208, 0.2), 
+        transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+button:hover::after {
+    transform: translateX(100%);
+}
+
+.results {
+    background-color: var(--card-light);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease, box-shadow 0.3s ease;
+}
+
+.results:hover {
+    box-shadow: 0 8px 25px rgba(0, 106, 113, 0.15);
+}
+
+.dark-mode .results {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
+
+.results.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.results h2 {
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
+}
+
+.dark-mode .results h2 {
+    color: var(--primary-light);
+}
+
+#argumentsOutput {
+    margin-top: 10px;
+    display: grid;
+    gap: 12px;
+}
+
+.argument-item {
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: var(--card-light);
+    border-left: 4px solid var(--secondary);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease, transform 0.2s ease;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.dark-mode .argument-item {
+    background-color: var(--card-dark);
+}
+
+.argument-item:nth-child(1) { animation-delay: 0.1s; }
+.argument-item:nth-child(2) { animation-delay: 0.2s; }
+.argument-item:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.argument-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 106, 113, 0.15);
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+
+.theme-toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-dark);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.theme-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.sun {
+    left: 6px;
+    opacity: 0;
+}
+
+.moon {
+    right: 6px;
+}
+
+input:checked + .slider .sun {
+    opacity: 1;
+}
+
+input:checked + .slider .moon {
+    opacity: 0;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-light);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.notes-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.3s ease;
+}
+
+.note-btn {
+    padding: 10px 15px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.note-btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.note-btn:active {
+    transform: translateY(0);
+}
+
+.note-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.note-btn:hover .note-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.notes-area {
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--card-light);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-light);
+}
+
+.dark-mode .notes-area {
+    background-color: var(--card-dark);
+    border-color: var(--border-dark);
+}
+
+.notes-area.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.note-input-container {
+    margin-bottom: 10px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.note-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    background-color: var(--card-light);
+    color: var(--text-light);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dark-mode .note-input {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    border-color: var(--border-dark);
+}
+
+.note {
+    background-color: var(--card-light);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+    border-left: 3px solid var(--secondary);
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .note {
+    background-color: var(--card-dark);
+}
+
+.note:hover {
+    animation: noteGlow 2s infinite;
+}
+
+.note-text {
+    margin-right: 25px;
+}
+
+.delete-note {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.dark-mode .delete-note {
+    color: var(--text-dark);
+}
+
+.delete-note:hover {
+    color: var(--primary-dark);
+    transform: scale(1.2);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes noteGlow {
+    0% { box-shadow: 0 0 5px rgba(154, 203, 208, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(154, 203, 208, 0.5); }
+    100% { box-shadow: 0 0 5px rgba(154, 203, 208, 0.3); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(72, 166, 167, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(72, 166, 167, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(72, 166, 167, 0); }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .input-section {
+        flex-direction: column;
+    }
+    
+    #topicInput, #stanceSelect, button {
+        width: 100%;
+    }
+    
+    .theme-toggle-container {
+        position: static;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .notes-container {
+        position: static;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+    
+    .notes-area {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
